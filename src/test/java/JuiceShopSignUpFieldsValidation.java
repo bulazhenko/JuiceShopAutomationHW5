@@ -6,6 +6,7 @@ import io.ctdev.pages.LoginPage;
 import io.ctdev.pages.RegistrationPage;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class JuiceShopSignUpFieldsValidation extends BaseTest {
@@ -19,9 +20,13 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
     private int securityQuestionIndex = RandomData.get().nextInt(1, 13);
     private String securityQuestionAnswer = RandomString.make();
 
+    @BeforeMethod
+    public void beforeTest() {
+        openUrl(TestProperties.config.juiceShopUrl());
+    }
+
     @Test
     public void signUpEmailValidation() {
-        openUrl(TestProperties.config.juiceShopUrl());
         homePage.clickDismissButton();
         homePage.clickAccountButton();
         homePage.clickLoginButton();
@@ -38,7 +43,6 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
 
     @Test
     public void signUpRepeatPasswordValidation() {
-        openUrl(TestProperties.config.juiceShopUrl());
         homePage.clickDismissButton();
         homePage.clickAccountButton();
         homePage.clickLoginButton();
@@ -55,7 +59,6 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
 
     @Test
     public void signUpQuestionValidation() {
-        openUrl(TestProperties.config.juiceShopUrl());
         homePage.clickDismissButton();
         homePage.clickAccountButton();
         homePage.clickLoginButton();

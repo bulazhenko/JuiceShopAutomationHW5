@@ -1,6 +1,7 @@
 package io.ctdev.pages;
 
 import io.ctdev.SingletonWebDriver;
+import io.ctdev.entities.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,7 @@ public class HomePage {
     private By soldOutErrorMessage = By.xpath("//simple-snack-bar[contains(.,'We are out of stock! Sorry for the inconvenience.')]");
     private By meWantItDismiss = By.xpath("//a[@aria-label='dismiss cookie message']");
 
-    private String productInfoButton = "//mat-grid-list//mat-grid-tile[%s]//mat-card";
+    private String productInfoButton = "//mat-grid-list//mat-card[contains(.,'%s')]";
     private String addProductToBasketButton = productInfoButton + "//button";
 
     public void clickAccountButton() {
@@ -39,12 +40,12 @@ public class HomePage {
         return !driver.findElements(yourBasketButton).isEmpty();
     }
 
-    public void openProductInfoPage(int productIndex) {
-        driver.findElement(By.xpath(String.format(productInfoButton, productIndex))).click();
+    public void openProductInfoPage(Product product) {
+        driver.findElement(By.xpath(String.format(productInfoButton, product.getTitle()))).click();
     }
 
-    public void addProductToBasket(int productIndex) {
-        driver.findElement(By.xpath(String.format(addProductToBasketButton, productIndex))).click();
+    public void addProductToBasket(Product product) {
+        driver.findElement(By.xpath(String.format(addProductToBasketButton, product.getTitle()))).click();
     }
 
     public void openBasketPage() {

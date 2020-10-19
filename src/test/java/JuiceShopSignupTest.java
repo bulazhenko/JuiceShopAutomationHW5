@@ -6,6 +6,7 @@ import io.ctdev.pages.LoginPage;
 import io.ctdev.pages.RegistrationPage;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class JuiceShopSignupTest extends BaseTest {
@@ -19,9 +20,13 @@ public class JuiceShopSignupTest extends BaseTest {
     private int securityQuestionIndex = RandomData.get().nextInt(1, 13);
     private String securityQuestionAnswer = RandomString.make();
 
+    @BeforeMethod
+    public void beforeTest() {
+        openUrl(TestProperties.config.juiceShopUrl());
+    }
+
     @Test
     public void signUp() {
-        openUrl(TestProperties.config.juiceShopUrl());
         homePage.clickDismissButton();
         homePage.clickAccountButton();
         homePage.clickLoginButton();
