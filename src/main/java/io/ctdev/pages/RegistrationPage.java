@@ -36,8 +36,8 @@ public class RegistrationPage {
 
     public void selectSecurityQuestion(int index) {
         driver.findElement(securityQuestionDropdown).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format("//div[@id='mat-select-1-panel']//mat-option[%s]", index))));
-        driver.findElement(By.xpath(String.format("//div[@id='mat-select-1-panel']//mat-option[%s]", index))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))));
+        driver.findElement(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))).click();
     }
 
     public void fillAnswerField(String answer) {

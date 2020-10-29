@@ -10,5 +10,11 @@ public interface TestProperties extends Config {
 
     @Key("juice.shop.url")
     String juiceShopUrl();
+
+    @Key("remote")
+    Boolean remote();
+
+    @Key("remote.url")
+    String remoteUrl();
 }
 

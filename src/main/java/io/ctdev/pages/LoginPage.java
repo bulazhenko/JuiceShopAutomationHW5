@@ -25,7 +25,6 @@ public class LoginPage {
 
     public void fillInPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
-
     }
 
     public void clickLoginButton(){

@@ -15,14 +15,18 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
     private LoginPage loginPage = new LoginPage();
     private RegistrationPage registrationPage = new RegistrationPage();
 
-    private String email = RandomString.make(7) + "@jsshop.com";
-    private String password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
-    private int securityQuestionIndex = RandomData.get().nextInt(1, 13);
-    private String securityQuestionAnswer = RandomString.make();
+    private String email;
+    private String password;
+    private int securityQuestionIndex;
+    private String securityQuestionAnswer;
 
     @BeforeMethod
     public void beforeTest() {
         openUrl(TestProperties.config.juiceShopUrl());
+        email = RandomString.make(7) + "@jsshop.com";
+        password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
+        securityQuestionIndex = RandomData.get().nextInt(1, 13);
+        securityQuestionAnswer = RandomString.make();
     }
 
     @Test
@@ -69,7 +73,7 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
         registrationPage.selectSecurityQuestion(securityQuestionIndex);
         registrationPage.fillAnswerField("");
         registrationPage.clickRegisterButton();
-        Assert.assertFalse(registrationPage.isSuccessfulRegisterMessagePresent());
         Assert.assertTrue(registrationPage.isSecurityQuestionAnswerErrorPresent());
     }
 }
+

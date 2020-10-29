@@ -33,4 +33,10 @@ public class AccountActions {
         loginPage.clickLoginButton();
         Assert.assertTrue(homePage.isYourBasketPresent());
     }
+
+    public static void openLoginform (User user){
+        homePage.clickDismissButton();
+        homePage.clickAccountButton();
+        homePage.clickLoginButton();
+    }
 }

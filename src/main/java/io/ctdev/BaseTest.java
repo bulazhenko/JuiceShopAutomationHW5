@@ -18,4 +18,9 @@ public class BaseTest {
     public String getTitle() {
         return driver.getTitle();
     }
+
+    public void logout(){
+        driver.manage().deleteAllCookies();
+        driver.navigate().refresh();
+    }
 }

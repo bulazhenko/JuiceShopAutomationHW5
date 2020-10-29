@@ -15,13 +15,19 @@ public class JuiceShopSignupTest extends BaseTest {
     private LoginPage loginPage = new LoginPage();
     private RegistrationPage registrationPage = new RegistrationPage();
 
-    private String email = RandomString.make(7) + "@jsshop.com";
-    private String password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
-    private int securityQuestionIndex = RandomData.get().nextInt(1, 13);
-    private String securityQuestionAnswer = RandomString.make();
+    private String email;
+    private String password;
+    private int securityQuestionIndex;
+    private String securityQuestionAnswer;
 
     @BeforeMethod
     public void beforeTest() {
+        email = RandomString.make(7) + "@jsshop.com";
+        password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
+        securityQuestionAnswer = RandomString.make();
+        securityQuestionIndex = RandomData.get().nextInt(1, 13);
+        ;
+
         openUrl(TestProperties.config.juiceShopUrl());
     }
 

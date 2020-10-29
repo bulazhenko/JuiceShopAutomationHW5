@@ -8,6 +8,7 @@ import io.ctdev.pages.HomePage;
 import io.ctdev.pages.LoginPage;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,16 +17,25 @@ public class JuiceShopLoginTest extends BaseTest {
     private HomePage homePage = new HomePage();
     private LoginPage loginPage = new LoginPage();
 
-    private String email = RandomString.make(7) + "@jsshop.com";
-    private String password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
-    private String securityQuestionAnswer = RandomString.make();
-
-    private final User testUser = new User(email, password, SecurityQuestion.randomQuestion(), securityQuestionAnswer);
+    private String email;
+    private String password;
+    private String securityQuestionAnswer;
+    private User testUser;
 
     @BeforeMethod
     public void beforeTest() {
+        email = RandomString.make(7) + "@jsshop.com";
+        password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
+        securityQuestionAnswer = RandomString.make();
+        testUser = new User(email, password, SecurityQuestion.randomQuestion(), securityQuestionAnswer);
+
         openUrl(TestProperties.config.juiceShopUrl());
         AccountActions.registration(testUser);
+    }
+
+    @AfterMethod
+    public void afterTest() {
+        homePage.clickLogoutButton();
     }
 
     @Test
@@ -34,33 +44,5 @@ public class JuiceShopLoginTest extends BaseTest {
         loginPage.fillInPasswordField(password);
         loginPage.clickLoginButton();
         Assert.assertTrue(homePage.isYourBasketPresent());
-    }
-
-    //Negative Tests
-    @Test
-    public void loginWithInvalidPassword() {
-        loginPage.fillInEmailField(email);
-        loginPage.fillInPasswordField("12");
-        loginPage.clickLoginButton();
-        Assert.assertTrue(loginPage.isInvalidPasswordOrEmailErrorPresent());
-    }
-
-    @Test
-    public void loginWithEmptyEmailAndPassword() {
-        loginPage.fillInEmailField("");
-        loginPage.fillInPasswordField("");
-        loginPage.clickLoginButton();
-        Assert.assertFalse(loginPage.isInvalidPasswordOrEmailErrorPresent());
-
-        loginPage.clickLoginButton();
-        Assert.assertFalse(loginPage.isPleaseProvidePasswordErrorPresent());
-    }
-
-    @Test
-    public void loginWithEmptyEmailField() {
-        loginPage.fillInEmailField("");
-        loginPage.fillInPasswordField(password);
-        loginPage.clickLoginButton();
-        Assert.assertFalse(loginPage.isInvalidPasswordOrEmailErrorPresent());
     }
 }
