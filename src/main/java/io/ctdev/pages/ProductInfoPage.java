@@ -3,6 +3,8 @@ package io.ctdev.pages;
 import io.ctdev.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductInfoPage {
 
@@ -12,6 +14,7 @@ public class ProductInfoPage {
     private By productPriceField = By.xpath("//mat-dialog-container//p");
 
     public String getProductTitle() {
+        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productTitleField));
         return driver.findElement(productTitleField).getText();
     }
 

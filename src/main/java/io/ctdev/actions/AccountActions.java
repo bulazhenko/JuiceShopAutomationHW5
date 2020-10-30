@@ -34,7 +34,7 @@ public class AccountActions {
         Assert.assertTrue(homePage.isYourBasketPresent());
     }
 
-    public static void openLoginform (User user){
+    public static void openLoginform(User user) {
         homePage.clickDismissButton();
         homePage.clickAccountButton();
         homePage.clickLoginButton();

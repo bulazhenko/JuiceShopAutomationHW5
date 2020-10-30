@@ -23,11 +23,11 @@ public class JuiceShopProductDataVerify extends BaseTest {
     private String securityQuestionAnswer;
     private User testUser;
 
-    private final String TITLE = "Green Smoothie";
-    private final String DESCRIPTION = "Looks poisonous but is actually very good for your health! Made from green cabbage, spinach, kiwi and grass.";
-    private final String PRICE = "1.99";
+    private String TITLE;
+    private String DESCRIPTION;
+    private String PRICE;
 
-    private final Product product = new Product(TITLE, DESCRIPTION, PRICE);
+    private Product product;
 
     @BeforeMethod
     public void beforeTest() {
@@ -35,6 +35,13 @@ public class JuiceShopProductDataVerify extends BaseTest {
         password = RandomString.make(5) + RandomData.get().nextInt(1000, 9999);
         securityQuestionAnswer = RandomString.make();
         testUser = new User(email, password, SecurityQuestion.randomQuestion(), securityQuestionAnswer);
+
+        TITLE = "Green Smoothie";
+        DESCRIPTION = "Looks poisonous but is actually very good for your health! Made from green cabbage, spinach, kiwi and grass.";
+        PRICE = "1.99";
+
+        product = new Product(TITLE, DESCRIPTION, PRICE);
+
 
         openUrl(TestProperties.config.juiceShopUrl());
         AccountActions.registration(testUser);
@@ -46,7 +53,7 @@ public class JuiceShopProductDataVerify extends BaseTest {
         homePage.clickLogoutButton();
     }
 
-    @Test
+    @Test()
     public void productDataVerify() {
         homePage.openProductInfoPage(product);
         Assert.assertEquals(productInfoPage.getProductTitle(), product.getTitle());

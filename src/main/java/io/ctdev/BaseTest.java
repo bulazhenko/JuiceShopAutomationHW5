@@ -19,7 +19,7 @@ public class BaseTest {
         return driver.getTitle();
     }
 
-    public void logout(){
+    public void logout() {
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
     }

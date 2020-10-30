@@ -24,11 +24,10 @@ public class HomePage {
     private By meWantItDismiss = By.xpath("//a[@aria-label='dismiss cookie message']");
     private By cookiePopup = By.xpath("//div[@aria-describedby='cookieconsent:desc']");
     private By logoutButton = By.xpath("//button[@id='navbarLogoutButton']");
-    private By accountDropdown = By.xpath("//div[@role='menu']/div[contains(@class,'mat-menu-content')]");
     private By productAddedPopup = By.xpath("//snack-bar-container[contains(.,'basket')]");
     private By basketFrame = By.xpath("//app-basket//mat-row");
 
-    private String productInfoButton = "//mat-grid-list//mat-card[contains(.,'%s')]";
+    private String productInfoButton = "//mat-grid-list//mat-grid-tile[contains(.,'%s')]";
     private String addProductToBasketButton = productInfoButton + "//button";
 
     public void clickAccountButton() {
@@ -40,7 +39,7 @@ public class HomePage {
     public void clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, 6);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(loginButton));
-        //driver.findElement(loginButton).click();
+
         WebElement element = driver.findElement(loginButton);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
@@ -57,6 +56,11 @@ public class HomePage {
     }
 
     public void openProductInfoPage(Product product) {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.findElement(By.xpath(String.format(productInfoButton, product.getTitle()))).click();
     }
 
@@ -107,6 +111,10 @@ public class HomePage {
         clickAccountButton();
         // driver.findElement(accountDropdown).isDisplayed();
         driver.findElement(logoutButton).click();
+    }
+
+    public void reloadHomePage() {
+        driver.navigate().refresh();
     }
 }
 

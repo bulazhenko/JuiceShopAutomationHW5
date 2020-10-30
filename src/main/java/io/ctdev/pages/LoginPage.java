@@ -27,12 +27,12 @@ public class LoginPage {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         driver.findElement(clickLoginButton).click();
     }
 
     public boolean isInvalidPasswordOrEmailErrorPresent() {
-       return !driver.findElements(invalidPasswordOrEmailError).isEmpty();
+        return !driver.findElements(invalidPasswordOrEmailError).isEmpty();
     }
 
     public boolean isPleaseProvidePasswordErrorPresent() {
