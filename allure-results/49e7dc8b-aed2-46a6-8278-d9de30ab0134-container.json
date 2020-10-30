@@ -1,0 +1,1 @@
+{"uuid":"49e7dc8b-aed2-46a6-8278-d9de30ab0134","name":"JuiceShopLoginTest","children":["81ef62ca-f859-42fd-bd9e-b3fd9960c70e"],"befores":[],"afters":[{"name":"closeDriver","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1604001257144,"stop":1604001257144}],"links":[],"start":1604001257124,"stop":1604001257144}

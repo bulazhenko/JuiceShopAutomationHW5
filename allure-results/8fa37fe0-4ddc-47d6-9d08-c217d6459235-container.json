@@ -1,0 +1,1 @@
+{"uuid":"8fa37fe0-4ddc-47d6-9d08-c217d6459235","name":"JuiceShopProductDataVerify","children":["579e5461-fa03-4000-8591-e3c4ffb92d37"],"befores":[],"afters":[{"name":"closeDriver","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1604002239221,"stop":1604002239221}],"links":[],"start":1604002239198,"stop":1604002239222}

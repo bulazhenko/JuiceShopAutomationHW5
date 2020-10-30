@@ -1,0 +1,1 @@
+{"uuid":"32836892-ffea-42aa-b3c3-e6cdb12a540b","name":"JuiceShopAddToBasketSoldOutItem","children":["74a437f0-935a-4745-af99-2b216a7ff424"],"befores":[],"afters":[{"name":"closeDriver","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1604002513243,"stop":1604002513246}],"links":[],"start":1604002513200,"stop":1604002513246}
