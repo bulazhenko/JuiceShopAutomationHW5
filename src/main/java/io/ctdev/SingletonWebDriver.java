@@ -68,7 +68,7 @@ public class SingletonWebDriver {
                 break;
         }
         drivers.get().manage().window().maximize();
-        drivers.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        drivers.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public static WebDriver getInstanceOfSingletonWebDriver() {
