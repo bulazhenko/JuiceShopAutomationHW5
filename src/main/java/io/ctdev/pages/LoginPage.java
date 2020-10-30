@@ -3,6 +3,8 @@ package io.ctdev.pages;
 import io.ctdev.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
@@ -28,6 +30,7 @@ public class LoginPage {
     }
 
     public void clickLoginButton() {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(clickLoginButton));
         driver.findElement(clickLoginButton).click();
     }
 

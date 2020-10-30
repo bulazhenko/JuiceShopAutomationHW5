@@ -90,10 +90,6 @@ public class HomePage {
         wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
     }
 
-    public void addSoldOutProduct() {
-        driver.findElement(addSoldOutProductButton).click();
-    }
-
     public boolean isSoldOutErrorMessagePresent() {
         return !driver.findElements(soldOutErrorMessage).isEmpty();
     }
@@ -106,15 +102,9 @@ public class HomePage {
 
     public void clickLogoutButton() {
         driver.get(TestProperties.config.juiceShopUrl());
-        driver.navigate().refresh();
-        new WebDriverWait(driver, 15).until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         clickAccountButton();
-        // driver.findElement(accountDropdown).isDisplayed();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(logoutButton));
         driver.findElement(logoutButton).click();
-    }
-
-    public void reloadHomePage() {
-        driver.navigate().refresh();
     }
 }
 
