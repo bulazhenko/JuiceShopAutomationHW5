@@ -103,7 +103,7 @@ public class HomePage {
     public void clickLogoutButton() {
         driver.get(TestProperties.config.juiceShopUrl());
         clickAccountButton();
-        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(logoutButton));
+        new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(logoutButton));
         driver.findElement(logoutButton).click();
     }
 }
