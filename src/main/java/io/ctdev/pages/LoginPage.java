@@ -30,7 +30,7 @@ public class LoginPage {
     }
 
     public void clickLoginButton() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(clickLoginButton));
+        new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
         driver.findElement(clickLoginButton).click();
     }
 
