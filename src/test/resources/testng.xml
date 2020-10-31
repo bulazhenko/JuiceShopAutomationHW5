@@ -6,5 +6,22 @@
         <packages>
             <package name="io.ctdev.test.*"/>
         </packages>
+        <classes>
+            <class name="io.ctdev.test.JuiceShopSignupTest">
+            </class>
+            <class name="io.ctdev.test.JuiceShopLoginTest">
+            </class>
+            <class name="io.ctdev.test.JuiceShopLoginNegativeTest">
+            </class>
+            <class name="io.ctdev.test.JuiceShopSignUpFieldsValidation">
+            </class>
+            <class name="io.ctdev.test.JuiceShopAddToBasketSoldOutItem">
+            </class>
+            <class name="io.ctdev.test.JuiceShopProductDataVerify">
+            </class>
+            <class name="io.ctdev.test.JuiceShopAddProductToBasket">
+            </class>
+        </classes>
     </test>
+
 </suite>
