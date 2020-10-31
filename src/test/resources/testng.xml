@@ -2,23 +2,50 @@
 <suite name="Regression Suite" verbose="1" configfailurepolicy="continue" parallel="none" thread-count="1">
     <listeners>
     </listeners>
-    <test name="Regression">
-        <packages>
-            <package name="io.ctdev.tests.*"/>
-        </packages>
+    <test name="JuiceShopSignupTest">
         <classes>
             <class name="io.ctdev.tests.JuiceShopSignupTest">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopLoginTest">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopLoginTest">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopLoginNegativeFlow">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopLoginNegativeFlow">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopSignUpFieldsValidation">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopSignUpFieldsValidation">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopAddToBasketSoldOutItem">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopAddToBasketSoldOutItem">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopProductDataVerify">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopProductDataVerify">
             </class>
+        </classes>
+    </test>
+
+    <test name="JuiceShopAddProductToBasket">
+        <classes>
             <class name="io.ctdev.tests.JuiceShopAddProductToBasket">
             </class>
         </classes>
