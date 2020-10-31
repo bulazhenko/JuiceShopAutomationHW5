@@ -11,7 +11,7 @@
             </class>
             <class name="io.ctdev.tests.JuiceShopLoginTest">
             </class>
-            <class name="io.ctdev.tests.JuiceShopLoginNegativeTest">
+            <class name="io.ctdev.tests.JuiceShopLoginNegativeFlow">
             </class>
             <class name="io.ctdev.tests.JuiceShopSignUpFieldsValidation">
             </class>
