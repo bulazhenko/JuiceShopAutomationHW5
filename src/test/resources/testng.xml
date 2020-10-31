@@ -18,7 +18,7 @@
 
     <test name="JuiceShopLoginNegativeFlow">
         <classes>
-            <class name="io.ctdev.tests.JuiceShopLoginNegativeFlow">
+            <class name="io.ctdev.tests.JuiceShopNegativeLoginTest">
             </class>
         </classes>
     </test>
