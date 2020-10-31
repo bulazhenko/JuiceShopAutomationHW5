@@ -1,4 +1,4 @@
-package io.ctdev.test;
+package io.ctdev.tests;
 
 import com.arakelian.faker.service.RandomData;
 import io.ctdev.BaseTest;

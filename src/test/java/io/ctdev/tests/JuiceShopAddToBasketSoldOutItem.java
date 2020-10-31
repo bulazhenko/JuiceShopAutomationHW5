@@ -1,28 +1,33 @@
-package io.ctdev.test;
+package io.ctdev.tests;
 
 import com.arakelian.faker.service.RandomData;
 import io.ctdev.BaseTest;
 import io.ctdev.TestProperties;
 import io.ctdev.actions.AccountActions;
+import io.ctdev.entities.Product;
 import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.HomePage;
-import io.ctdev.pages.LoginPage;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class JuiceShopLoginTest extends BaseTest {
+public class JuiceShopAddToBasketSoldOutItem extends BaseTest {
 
-    private HomePage homePage = new HomePage();
-    private LoginPage loginPage = new LoginPage();
+    private final HomePage homePage = new HomePage();
 
     private String email;
     private String password;
     private String securityQuestionAnswer;
     private User testUser;
+
+    private final String TITLE = "OWASP Juice Shop \"King of the Hill\" Facemask";
+    private final String DESCRIPTION = "Facemask with compartment for filter from 50% cotton and 50% polyester.";
+    private final String PRICE = "13.49";
+
+    private final Product product = new Product(TITLE, DESCRIPTION, PRICE);
 
     @BeforeMethod
     public void beforeTest() {
@@ -33,6 +38,7 @@ public class JuiceShopLoginTest extends BaseTest {
 
         openUrl(TestProperties.config.juiceShopUrl());
         AccountActions.registration(testUser);
+        AccountActions.login(testUser);
     }
 
     @AfterMethod
@@ -41,10 +47,9 @@ public class JuiceShopLoginTest extends BaseTest {
     }
 
     @Test
-    public void loginTest() {
-        loginPage.fillInEmailField(email);
-        loginPage.fillInPasswordField(password);
-        loginPage.clickLoginButton();
-        Assert.assertTrue(homePage.isYourBasketPresent());
+    public void verifyAddingProductToBasket() {
+        homePage.nextPage();
+        homePage.addSoldOutProductToBasket(product);
+        Assert.assertTrue(homePage.isSoldOutErrorMessagePresent());
     }
 }

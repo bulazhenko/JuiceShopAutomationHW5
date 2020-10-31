@@ -4,22 +4,22 @@
     </listeners>
     <test name="Regression">
         <packages>
-            <package name="io.ctdev.test.*"/>
+            <package name="io.ctdev.tests.*"/>
         </packages>
         <classes>
-            <class name="io.ctdev.test.JuiceShopSignupTest">
+            <class name="io.ctdev.tests.JuiceShopSignupTest">
             </class>
-            <class name="io.ctdev.test.JuiceShopLoginTest">
+            <class name="io.ctdev.tests.JuiceShopLoginTest">
             </class>
-            <class name="io.ctdev.test.JuiceShopLoginNegativeTest">
+            <class name="io.ctdev.tests.JuiceShopLoginNegativeTest">
             </class>
-            <class name="io.ctdev.test.JuiceShopSignUpFieldsValidation">
+            <class name="io.ctdev.tests.JuiceShopSignUpFieldsValidation">
             </class>
-            <class name="io.ctdev.test.JuiceShopAddToBasketSoldOutItem">
+            <class name="io.ctdev.tests.JuiceShopAddToBasketSoldOutItem">
             </class>
-            <class name="io.ctdev.test.JuiceShopProductDataVerify">
+            <class name="io.ctdev.tests.JuiceShopProductDataVerify">
             </class>
-            <class name="io.ctdev.test.JuiceShopAddProductToBasket">
+            <class name="io.ctdev.tests.JuiceShopAddProductToBasket">
             </class>
         </classes>
     </test>
