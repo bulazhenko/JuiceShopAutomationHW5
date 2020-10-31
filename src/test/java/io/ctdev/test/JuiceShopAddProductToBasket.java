@@ -1,3 +1,5 @@
+package io.ctdev.test;
+
 import com.arakelian.faker.service.RandomData;
 import io.ctdev.BaseTest;
 import io.ctdev.TestProperties;
