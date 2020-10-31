@@ -16,6 +16,8 @@
             </class>
             <class name="io.ctdev.tests.JuiceShopAddProductToBasket">
             </class>
+            <class name="io.ctdev.tests.JuiceShopNegativeLoginTest">
+            </class>
         </classes>
     </test>
 </suite>
