@@ -5,10 +5,45 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>AutomationHW2</artifactId>
+    <artifactId>AutomationHW4</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <name>juiceshop-automation</name>
+    <url>http://3.18.213.48/#/</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <aspectj.version>1.8.10</aspectj.version>
+    </properties>
+
     <build>
         <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.20</version>
+            <configuration>
+                <argLine>
+                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                </argLine>
+                <environmentVariables>
+                    <maven.project.basedir>${project.basedir}</maven.project.basedir>
+                </environmentVariables>
+                <!-- Suite file injection parameter from command line -->
+                <suiteXmlFiles>
+                    <suiteXmlFile>${project.basedir}/src/test/resources/testng.xml</suiteXmlFile>
+                </suiteXmlFiles>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                    <version>${aspectj.version}</version>
+                </dependency>
+            </dependencies>
+        </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -26,24 +61,12 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <systemPropertyVariables>
-                        <driverType>${driver.type}</driverType>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
         </plugins>
+
     </build>
 
-    <properties>
-        <driver.type>chrome</driver.type>
-    </properties>
-
     <dependencies>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
