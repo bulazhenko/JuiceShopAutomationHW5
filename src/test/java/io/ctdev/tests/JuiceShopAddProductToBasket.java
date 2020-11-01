@@ -9,11 +9,17 @@ import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.BasketPage;
 import io.ctdev.pages.HomePage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+@Epic("Exist items")
+@Story("Basket add exist product")
 
 public class JuiceShopAddProductToBasket extends BaseTest {
 
@@ -49,6 +55,7 @@ public class JuiceShopAddProductToBasket extends BaseTest {
     }
 
     @Test
+    @Description("Verification of exist product add to the basket")
     public void verifyAddingProductToBasket() {
         homePage.addProductToBasket(product);
         homePage.openBasketPage();

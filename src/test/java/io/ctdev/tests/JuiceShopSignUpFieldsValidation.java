@@ -6,11 +6,15 @@ import io.ctdev.TestProperties;
 import io.ctdev.pages.HomePage;
 import io.ctdev.pages.LoginPage;
 import io.ctdev.pages.RegistrationPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+@Epic("SignUp validation")
+@Epic("User signUo fields validation")
 public class JuiceShopSignUpFieldsValidation extends BaseTest {
 
     private HomePage homePage = new HomePage();
@@ -32,6 +36,7 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
     }
 
     @Test
+    @Description("User signUp email field validation with invalid email")
     public void signUpEmailValidation() {
         homePage.clickDismissButton();
         homePage.clickAccountButton();
@@ -48,6 +53,7 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
     }
 
     @Test
+    @Description("User signUp repeat password field validation with wrong password")
     public void signUpRepeatPasswordValidation() {
         homePage.clickDismissButton();
         homePage.clickAccountButton();
@@ -64,6 +70,7 @@ public class JuiceShopSignUpFieldsValidation extends BaseTest {
     }
 
     @Test
+    @Description("User signUp secret question field validation with empty data")
     public void signUpQuestionValidation() {
         homePage.clickDismissButton();
         homePage.clickAccountButton();

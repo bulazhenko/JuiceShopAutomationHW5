@@ -7,10 +7,16 @@ import io.ctdev.actions.AccountActions;
 import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.LoginPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+@Epic("Negative login")
+@Story("User login fields validation, error's validation")
 
 public class JuiceShopNegativeLoginTest extends BaseTest {
     private LoginPage loginPage = new LoginPage();
@@ -32,6 +38,7 @@ public class JuiceShopNegativeLoginTest extends BaseTest {
     }
 
     @Test
+    @Description("Invalid password present via - User login with empty password field")
     public void loginWithInvalidPassword() {
         loginPage.fillInEmailField(email);
         loginPage.fillInPasswordField("12");
@@ -40,6 +47,7 @@ public class JuiceShopNegativeLoginTest extends BaseTest {
     }
 
     @Test
+    @Description("Invalid email&password present via - User login with empty data")
     public void loginWithEmptyEmailAndPassword() {
         loginPage.fillInEmailField("");
         loginPage.fillInPasswordField("");
@@ -51,6 +59,7 @@ public class JuiceShopNegativeLoginTest extends BaseTest {
     }
 
     @Test
+    @Description("User login with email field")
     public void loginWithEmptyEmailField() {
         loginPage.fillInEmailField("");
         loginPage.fillInPasswordField(password);

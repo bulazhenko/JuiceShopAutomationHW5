@@ -8,11 +8,17 @@ import io.ctdev.entities.Product;
 import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.HomePage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+@Epic("SoldOut items")
+@Story("Basket add soldOut item")
 
 public class JuiceShopAddToBasketSoldOutItem extends BaseTest {
 
@@ -47,6 +53,7 @@ public class JuiceShopAddToBasketSoldOutItem extends BaseTest {
     }
 
     @Test
+    @Description("Verification of soldOut item add to the basket")
     public void verifyAddingProductToBasket() {
         homePage.nextPage();
         homePage.addSoldOutProductToBasket(product);

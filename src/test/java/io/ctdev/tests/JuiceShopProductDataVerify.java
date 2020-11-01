@@ -9,11 +9,17 @@ import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.HomePage;
 import io.ctdev.pages.ProductInfoPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+@Epic("Product data")
+@Story("Product data verification")
 
 public class JuiceShopProductDataVerify extends BaseTest {
 
@@ -56,6 +62,7 @@ public class JuiceShopProductDataVerify extends BaseTest {
     }
 
     @Test()
+    @Description("Product title, description verification")
     public void productDataVerify() {
         homePage.openProductInfoPage(product);
         Assert.assertEquals(productInfoPage.getProductTitle(), product.getTitle());

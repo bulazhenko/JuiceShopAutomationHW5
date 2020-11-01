@@ -6,14 +6,21 @@ import io.ctdev.TestProperties;
 import io.ctdev.pages.HomePage;
 import io.ctdev.pages.LoginPage;
 import io.ctdev.pages.RegistrationPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+@Epic("SignUp")
+@Story("SignUp flow")
+
 public class JuiceShopSignupTest extends BaseTest {
 
     private HomePage homePage = new HomePage();
+
     private LoginPage loginPage = new LoginPage();
     private RegistrationPage registrationPage = new RegistrationPage();
 
@@ -34,6 +41,7 @@ public class JuiceShopSignupTest extends BaseTest {
     }
 
     @Test
+    @Description("User sign up")
     public void signUp() {
         homePage.clickDismissButton();
         homePage.clickAccountButton();

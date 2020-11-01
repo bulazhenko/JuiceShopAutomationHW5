@@ -8,12 +8,17 @@ import io.ctdev.entities.SecurityQuestion;
 import io.ctdev.entities.User;
 import io.ctdev.pages.HomePage;
 import io.ctdev.pages.LoginPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+@Epic("Login")
+@Story("User login flow")
 public class JuiceShopLoginTest extends BaseTest {
 
     private HomePage homePage = new HomePage();
@@ -41,6 +46,7 @@ public class JuiceShopLoginTest extends BaseTest {
     }
 
     @Test
+    @Description("User Login")
     public void loginTest() {
         loginPage.fillInEmailField(email);
         loginPage.fillInPasswordField(password);
