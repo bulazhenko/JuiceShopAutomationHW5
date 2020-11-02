@@ -76,5 +76,6 @@ public class SingletonWebDriver {
             instanceOfSingletonDriver = new SingletonWebDriver();
         }
         return instanceOfSingletonDriver.drivers.get();
+
     }
 }

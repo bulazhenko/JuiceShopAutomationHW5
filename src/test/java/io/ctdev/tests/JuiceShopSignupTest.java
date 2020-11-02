@@ -8,6 +8,7 @@ import io.ctdev.pages.LoginPage;
 import io.ctdev.pages.RegistrationPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;

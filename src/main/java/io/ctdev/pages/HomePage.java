@@ -3,6 +3,7 @@ package io.ctdev.pages;
 import io.ctdev.SingletonWebDriver;
 import io.ctdev.TestProperties;
 import io.ctdev.entities.Product;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -30,12 +31,14 @@ public class HomePage {
     private String productInfoButton = "//mat-grid-list//mat-grid-tile[contains(.,'%s')]";
     private String addProductToBasketButton = productInfoButton + "//button";
 
+    @Step
     public void clickAccountButton() {
         WebElement element = driver.findElement(accountButton);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
 
+    @Step
     public void clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, 6);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(loginButton));
@@ -45,16 +48,19 @@ public class HomePage {
         executor.executeScript("arguments[0].click();", element);
     }
 
+    @Step
     public void clickDismissButton() {
         if (!driver.findElements(dismissButton).isEmpty()) {
             driver.findElement(dismissButton).click();
         }
     }
 
+    @Step
     public boolean isYourBasketPresent() {
         return !driver.findElements(yourBasketButton).isEmpty();
     }
 
+    @Step
     public void openProductInfoPage(Product product) {
         try {
             Thread.sleep(5000);
@@ -64,10 +70,12 @@ public class HomePage {
         driver.findElement(By.xpath(String.format(productInfoButton, product.getTitle()))).click();
     }
 
+    @Step
     public void addSoldOutProductToBasket(Product product) {
         driver.findElement(By.xpath(String.format(addProductToBasketButton, product.getTitle()))).click();
     }
 
+    @Step
     public void addProductToBasket(Product product) {
         driver.findElement(By.xpath(String.format(addProductToBasketButton, product.getTitle()))).click();
         WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -76,6 +84,7 @@ public class HomePage {
 
     }
 
+    @Step
     public void openBasketPage() {
         driver.findElement(yourBasketButton).click();
         new WebDriverWait(driver, 5).until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
@@ -83,6 +92,7 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(basketFrame));
     }
 
+    @Step
     public void nextPage() {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(nextPageButton));
@@ -90,16 +100,19 @@ public class HomePage {
         wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
     }
 
+    @Step
     public boolean isSoldOutErrorMessagePresent() {
         return !driver.findElements(soldOutErrorMessage).isEmpty();
     }
 
+    @Step
     public void clickDismissMeWantButton() {
         if (driver.findElement(cookiePopup).isDisplayed()) {
             driver.findElement(meWantItDismiss).click();
         }
     }
 
+    @Step
     public void clickLogoutButton() {
         driver.get(TestProperties.config.juiceShopUrl());
         clickAccountButton();
