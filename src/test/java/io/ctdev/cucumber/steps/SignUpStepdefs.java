@@ -2,7 +2,7 @@ package io.ctdev.cucumber.steps;
 
 import com.arakelian.faker.service.RandomData;
 import io.ctdev.BaseTest;
-import io.ctdev.SingletonWebDriver;
+import io.ctdev.TestProperties;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,10 +12,9 @@ import io.ctdev.pages.RegistrationPage;
 import net.bytebuddy.utility.RandomString;
 import org.testng.Assert;
 
-public class SignUpStepdefs extends BaseTest {
+public class SignUpStepdefs extends BaseTest  {
 
     private HomePage homePage = new HomePage();
-
     private LoginPage loginPage = new LoginPage();
     private RegistrationPage registrationPage = new RegistrationPage();
 
@@ -27,7 +26,12 @@ public class SignUpStepdefs extends BaseTest {
 
     @Given("User is open the homepage")
     public void userIsOpenTheHomepage() {
-        openUrl("http://3.18.213.48/");
+        openUrl(TestProperties.config.juiceShopUrl());
+    }
+
+    @And("User close the popup")
+    public void userCloseThePopup() {
+        homePage.clickDismissButton();
     }
 
     @And("User click Account button")
@@ -35,8 +39,13 @@ public class SignUpStepdefs extends BaseTest {
         homePage.clickAccountButton();
     }
 
-    @And("User close the popup")
-    public void userCloseThePopup() {
+    @And("User click Login button")
+    public void userClickLoginButton() {
+        homePage.clickLoginButton();
+    }
+
+    @And("User close Me Want popup")
+    public void userCloseMeWantPopup() {
         homePage.clickDismissMeWantButton();
     }
 

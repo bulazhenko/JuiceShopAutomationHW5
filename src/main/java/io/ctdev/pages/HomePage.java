@@ -105,7 +105,7 @@ public class HomePage {
         return !driver.findElements(soldOutErrorMessage).isEmpty();
     }
 
-    @Step("User click dismiss button")
+    @Step("User click dismiss Me Want button")
     public void clickDismissMeWantButton() {
         if (driver.findElement(cookiePopup).isDisplayed()) {
             driver.findElement(meWantItDismiss).click();

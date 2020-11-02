@@ -19,7 +19,7 @@ public class SingletonWebDriver {
     private ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
     private SingletonWebDriver() {
-        switch (System.getProperty("driverType").toLowerCase()) {
+       switch (System.getProperty("driverType").toLowerCase()) {
             case "chrome":
                 if (TestProperties.config.remote()) {
                     DesiredCapabilities capabilities = DesiredCapabilities.chrome();
