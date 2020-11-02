@@ -14,18 +14,18 @@ public class ProductInfoPage {
     private By productDescriptionField = By.xpath("//mat-dialog-container//h1/parent::div/div[1]");
     private By productPriceField = By.xpath("//mat-dialog-container//p");
 
-    @Step
+    @Step("Get product tittle")
     public String getProductTitle() {
         new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productTitleField));
         return driver.findElement(productTitleField).getText();
     }
 
-    @Step
+    @Step("Get product description")
     public String getProductDescription() {
         return driver.findElement(productDescriptionField).getText();
     }
 
-    @Step
+    @Step("Get product price")
     public String getProductPrice() {
         return driver.findElement(productPriceField).getText();
     }

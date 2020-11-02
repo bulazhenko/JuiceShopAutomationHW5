@@ -4,7 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 
 public class BaseTest {
+
     WebDriver driver = SingletonWebDriver.getInstanceOfSingletonWebDriver();
+
+    public String getPageUrl() {
+        return driver.getCurrentUrl();
+    }
 
     public void openUrl(String url) {
         driver.get(url);

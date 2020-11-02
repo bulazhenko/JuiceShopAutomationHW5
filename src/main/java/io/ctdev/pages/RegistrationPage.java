@@ -23,54 +23,54 @@ public class RegistrationPage {
     private By repeatPasswordValidationError = By.xpath("//mat-error[contains(.,'Passwords do not match')]");
     private By securityQuestionValidationError = By.xpath("//mat-error[contains(.,' Please provide an answer to your security question.' )]");
 
-    @Step
+    @Step("User fill the email field")
     public void fillEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
 
-    @Step
+    @Step("User fill the password field")
     public void fillPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    @Step
+    @Step("User fill the repeat password field")
     public void fillRepeatPasswordField(String repeatPassword) {
         driver.findElement(repeatPasswordField).sendKeys(repeatPassword);
     }
 
-    @Step
+    @Step("User select security qustion")
     public void selectSecurityQuestion(int index) {
         driver.findElement(securityQuestionDropdown).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))));
         driver.findElement(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))).click();
     }
 
-    @Step
+    @Step("User fill the answer field")
     public void fillAnswerField(String answer) {
         driver.findElement(answerField).sendKeys(answer);
     }
 
-    @Step
+    @Step("User click registration button")
     public void clickRegisterButton() {
         driver.findElement(registerButton).click();
     }
 
-    @Step
+    @Step("Is successful registration message present?")
     public boolean isSuccessfulRegisterMessagePresent() {
         return !driver.findElements(successfulRegisterMessage).isEmpty();
     }
 
-    @Step
+    @Step("Is email validation Error present?")
     public boolean isEmailValidationErrorPresent() {
         return !driver.findElements(emailValidataionError).isEmpty();
     }
 
-    @Step
+    @Step("Is repeat password validation Error present?")
     public boolean isRepeatPasswordValidationErrorPresent() {
         return !driver.findElements(repeatPasswordValidationError).isEmpty();
     }
 
-    @Step
+    @Step("Is security question answer Error present?")
     public boolean isSecurityQuestionAnswerErrorPresent() {
         return !driver.findElements(securityQuestionValidationError).isEmpty();
     }

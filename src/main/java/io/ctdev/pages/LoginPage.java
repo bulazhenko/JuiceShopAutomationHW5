@@ -18,33 +18,33 @@ public class LoginPage {
     private By invalidPasswordOrEmailError = By.xpath("//div[@class='error ng-star-inserted']");
     private By errorMessagePleaseProvidePassword = By.xpath("//mat-error[@id='mat-error-2']");
 
-    @Step
+    @Step("User click not yet customer link")
     public void clickNotYetCustomerLink() {
         driver.findElement(notYetCustomerLink).click();
     }
 
-    @Step
+    @Step("User fill email field")
     public void fillInEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
 
-    @Step
+    @Step("User fill in password field")
     public void fillInPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    @Step
+    @Step("User click login button")
     public void clickLoginButton() {
         new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
         driver.findElement(clickLoginButton).click();
     }
 
-    @Step
+    @Step("Is inbaild password or email Erorr present?")
     public boolean isInvalidPasswordOrEmailErrorPresent() {
         return !driver.findElements(invalidPasswordOrEmailError).isEmpty();
     }
 
-    @Step
+    @Step("Is please provide a paswword Error present?")
     public boolean isPleaseProvidePasswordErrorPresent() {
         return !driver.findElements(errorMessagePleaseProvidePassword).isEmpty();
     }

@@ -11,7 +11,7 @@ public class BasketPage {
 
     private String basketProductContainer = "//mat-row[contains(.,'%s')]";
 
-    @Step
+    @Step("Is product present in basket?")
     public boolean isProductPresentInBasket(String title) {
         return driver.findElement(By.xpath(String.format(basketProductContainer, title))).isDisplayed();
     }
